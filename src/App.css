@@ -1,1 +1,44 @@
-/* write your css here */
+/* .card {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    text-align: center;
+}
+
+.card.live {
+    border-color: green;
+}
+
+.card.offline {
+    border-color: red;
+}
+
+.streamer-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.role-section {
+    margin-bottom: 20px;
+} */
+
+.spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 9px solid;
+    border-color: #474bff #0000;
+    animation: spinner-0tkp9a 1s infinite;
+}
+
+@keyframes spinner-0tkp9a {
+    to {
+        transform: rotate(0.5turn);
+    }
+}
+
+.container {
+    background: radial-gradient(circle, #d8115b 1px, transparent 1px), #ffffff;
+    background-size: 20px 20px;
+}

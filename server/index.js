@@ -51,7 +51,7 @@ const streamers = [
     "omie",
     "ripoozi",
     "ZayTyree",
-    "713Stew",
+    // "713Stew",
     "TylerTR",
     "mfWarlock",
     "hazan_n",
