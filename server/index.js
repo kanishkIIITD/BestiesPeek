@@ -50,16 +50,16 @@ const streamers = [
     // Albuterol_Boys
     "omie",
     "ripoozi",
-    "ZayTyree",
-    // "713Stew",
-    "TylerTR",
-    "mfWarlock",
+    "zaytyree",
+    // "713stew",
+    "tylertr",
+    "mfwarlock",
     "hazan_n",
-    "xDavidoh",
-    "Either",
-    "Baddy",
+    "xdavidoh",
+    "either",
+    "baddy",
     "tjnv_",
-    "NapoleonsLive",
+    "napoleonslive",
 ];
 
 cron.schedule("*/2 * * * *", async () => {

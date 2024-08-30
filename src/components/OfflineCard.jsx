@@ -31,7 +31,7 @@ const OfflineCard = ({ streamerData }) => {
             setLoading(false);
         }
     }, [streamerData]);
-    console.log(result);
+    // console.log(result);
 
     // if (loading) {
     //     return <div>Loading...</div>;

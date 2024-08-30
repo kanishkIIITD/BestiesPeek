@@ -8,8 +8,6 @@ import { Cards } from "./components/Cards";
 // import fetchStreamerData from "./api/fetchStreamerData";
 
 function App() {
-    const [tab, setTab] = useState("Besties"); // Besties, Albuterol Boys, Youtube Clips
-
     const besties = {
         leaders: ["4head", "ming", "nidas"],
         ogs: ["fanfan", "travpiper", "caramel"],
@@ -46,6 +44,8 @@ function App() {
         ],
     };
 
+    const [tab, setTab] = useState("Besties"); // Besties, Albuterol Boys, Youtube Clips
+
     return (
         <div className={`w-full bg-pink-500 flex justify-center items-center `}>
             <div className="bg-white w-[95%] h-[95%] rounded-md my-2 flex flex-col items-center">
@@ -54,7 +54,7 @@ function App() {
                 <div className={`border-2 border-pink-500 mb-4 w-full`}></div>
 
                 {tab === "Besties" || tab === "Albuterol Boys" ? (
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center w-full">
                         <div>
                             <img
                                 src={
@@ -71,7 +71,7 @@ function App() {
                             />
                         </div>
 
-                        <div className="mb-10 text-center">
+                        <div className="py-10 mb-10 text-center ">
                             <h1 className="text-3xl font-bold text-darkgrey-500">
                                 {tab === "Besties"
                                     ? "The Besties is a criminal gang founded on December 15th, 2023 by Fanny, Ming, and 4Head."
@@ -85,11 +85,13 @@ function App() {
                             className={`border-2 border-pink-500 mb-4 w-full`}
                         ></div>
 
-                        <div>
+                        {/* className="bg-gradient-to-r from-[#D8115B] to-[#D2B48C]" */}
+                        <div className="relative w-full">
                             <Cards
                                 streamers={
                                     tab === "Besties" ? besties : Albuterol_Boys
                                 }
+                                tab={tab}
                             />
                         </div>
                     </div>
