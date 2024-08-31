@@ -5,6 +5,7 @@ import OfflineCard from "./OfflineCard";
 import { MdMenuOpen } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import kittensImg from "../assets/kittens.jpg";
+import { FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
 
 const kittens = [
     "caramel",
@@ -16,7 +17,7 @@ const kittens = [
     "dripp",
 ];
 
-export const Cards = ({ streamers, tab }) => {
+export const Cards = ({ streamers, tab, darkMode }) => {
     const [liveStreamers, setLiveStreamers] = useState({});
     const [offlineStreamers, setOfflineStreamers] = useState({});
     const [sort, setSort] = useState("All");
@@ -66,7 +67,9 @@ export const Cards = ({ streamers, tab }) => {
         <div className="w-full">
             <div className="flex items-center gap-5 ml-10 mb-5 h-fit">
                 <button
-                    className="text-black font-bold transition-all duration-300 p-[10px] h-fit"
+                    className={`text-black font-bold transition-all duration-300 p-[10px] h-fit ${
+                        darkMode ? "text-white" : "text-black"
+                    }`}
                     onClick={() => {
                         setShowSortingButtons(!showSortingButtons);
                     }}
@@ -87,15 +90,22 @@ export const Cards = ({ streamers, tab }) => {
                     <button
                         onClick={() => setSort("All")}
                         className={`sorting-buttons ${
-                            sort === "All" && "active"
-                        }`}
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                        } ${
+                            sort === "All" && "active bg-[#d8115b] border-white"
+                        } `}
                     >
                         All
                     </button>
                     <button
                         onClick={() => setSort("Live")}
                         className={`sorting-buttons ${
-                            sort === "Live" && "active"
+                            sort === "Live" &&
+                            "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
                         Live
@@ -103,7 +113,11 @@ export const Cards = ({ streamers, tab }) => {
                     <button
                         onClick={() => setSort("Offline")}
                         className={`sorting-buttons ${
-                            sort === "Offline" && "active"
+                            sort === "Offline" &&
+                            "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
                         Offline
@@ -120,15 +134,28 @@ export const Cards = ({ streamers, tab }) => {
                             setSort("Viewer Count");
                         }}
                         className={`sorting-buttons ${
-                            sort === "Viewer Count" && "active"
+                            sort === "Viewer Count" &&
+                            "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
-                        Viewers
+                        Viewers{" "}
+                        {viewerCountSortOrder === "desc" ? (
+                            <FaArrowDownLong />
+                        ) : (
+                            <FaArrowUpLong />
+                        )}
                     </button>
                     <button
                         onClick={() => setSort("Leaders")}
                         className={`sorting-buttons ${
-                            sort === "Leaders" && "active"
+                            sort === "Leaders" &&
+                            "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
                         Leaders
@@ -136,7 +163,10 @@ export const Cards = ({ streamers, tab }) => {
                     <button
                         onClick={() => setSort("OGs")}
                         className={`sorting-buttons ${
-                            sort === "OGs" && "active"
+                            sort === "OGs" && "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
                         OGs
@@ -144,7 +174,11 @@ export const Cards = ({ streamers, tab }) => {
                     <button
                         onClick={() => setSort("Members")}
                         className={`sorting-buttons ${
-                            sort === "Members" && "active"
+                            sort === "Members" &&
+                            "active bg-[#d8115b] border-white"
+                        } ${
+                            darkMode &&
+                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
                         }`}
                     >
                         Members
@@ -154,7 +188,11 @@ export const Cards = ({ streamers, tab }) => {
                             <button
                                 onClick={() => setSort("Pet")}
                                 className={`sorting-buttons ${
-                                    sort === "Pet" && "active"
+                                    sort === "Pet" &&
+                                    "active bg-[#d8115b] border-white"
+                                } ${
+                                    darkMode &&
+                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Pet
@@ -162,7 +200,11 @@ export const Cards = ({ streamers, tab }) => {
                             <button
                                 onClick={() => setSort("Hangarounds")}
                                 className={`sorting-buttons ${
-                                    sort === "Hangarounds" && "active"
+                                    sort === "Hangarounds" &&
+                                    "active bg-[#d8115b] border-white"
+                                } ${
+                                    darkMode &&
+                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Hangarounds
@@ -170,7 +212,11 @@ export const Cards = ({ streamers, tab }) => {
                             <button
                                 onClick={() => setSort("Kittens")}
                                 className={`sorting-buttons ${
-                                    sort === "Kittens" && "active"
+                                    sort === "Kittens" &&
+                                    "active bg-[#d8115b] border-white"
+                                } ${
+                                    darkMode &&
+                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Kittens
@@ -186,7 +232,11 @@ export const Cards = ({ streamers, tab }) => {
                         key={role}
                         className="role-section flex flex-col items-center"
                     >
-                        <h2 className="text-3xl font-bold underline">
+                        <h2
+                            className={`text-3xl font-bold underline ${
+                                darkMode ? "text-white" : ""
+                            }`}
+                        >
                             {role.toUpperCase()}
                         </h2>
                         <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -194,12 +244,14 @@ export const Cards = ({ streamers, tab }) => {
                                 <Card
                                     key={streamerData.streamer_id}
                                     streamerData={streamerData}
+                                    darkMode={darkMode}
                                 />
                             ))}
                             {offlineStreamers[role]?.map((streamerData) => (
                                 <OfflineCard
                                     key={streamerData.user_name}
                                     streamerData={streamerData}
+                                    darkMode={darkMode}
                                 />
                             ))}
                         </div>
@@ -214,7 +266,11 @@ export const Cards = ({ streamers, tab }) => {
                     >
                         {liveStreamers[role]?.length > 0 && (
                             <>
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -223,6 +279,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -240,7 +297,11 @@ export const Cards = ({ streamers, tab }) => {
                     >
                         {offlineStreamers[role]?.length > 0 && (
                             <>
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -249,6 +310,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -266,7 +328,11 @@ export const Cards = ({ streamers, tab }) => {
                                 key={role}
                                 className="role-section flex flex-col items-center"
                             >
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -275,6 +341,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -283,6 +350,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -299,7 +367,11 @@ export const Cards = ({ streamers, tab }) => {
                                 key={role}
                                 className="role-section flex flex-col items-center"
                             >
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -308,6 +380,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -316,6 +389,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -332,7 +406,11 @@ export const Cards = ({ streamers, tab }) => {
                                 key={role}
                                 className="role-section flex flex-col items-center"
                             >
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -341,6 +419,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -349,6 +428,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -365,7 +445,11 @@ export const Cards = ({ streamers, tab }) => {
                                 key={role}
                                 className="role-section flex flex-col items-center"
                             >
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -374,6 +458,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -382,6 +467,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -398,7 +484,11 @@ export const Cards = ({ streamers, tab }) => {
                                 key={role}
                                 className="role-section flex flex-col items-center"
                             >
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -407,6 +497,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -415,6 +506,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <OfflineCard
                                                 key={streamerData.user_name}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         )
                                     )}
@@ -431,7 +523,11 @@ export const Cards = ({ streamers, tab }) => {
                     >
                         {liveStreamers[role]?.length > 0 && (
                             <>
-                                <h2 className="text-3xl font-bold underline">
+                                <h2
+                                    className={`text-3xl font-bold underline ${
+                                        darkMode ? "text-white" : ""
+                                    }`}
+                                >
                                     {role.toUpperCase()}
                                 </h2>
                                 <div className="streamer-cards flex flex-wrap gap-10 my-10 justify-center">
@@ -449,6 +545,7 @@ export const Cards = ({ streamers, tab }) => {
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
+                                                darkMode={darkMode}
                                             />
                                         ))}
                                 </div>
@@ -487,7 +584,10 @@ export const Cards = ({ streamers, tab }) => {
                                     className="flex justify-center w-fit"
                                     key={streamerData.streamer_id}
                                 >
-                                    <Card streamerData={streamerData} />
+                                    <Card
+                                        streamerData={streamerData}
+                                        darkMode={darkMode}
+                                    />
                                 </div>
                             ))}
                     </div>
@@ -505,7 +605,10 @@ export const Cards = ({ streamers, tab }) => {
                                     className="flex justify-center w-fit"
                                     key={streamerData.streamer_id}
                                 >
-                                    <OfflineCard streamerData={streamerData} />
+                                    <OfflineCard
+                                        streamerData={streamerData}
+                                        darkMode={darkMode}
+                                    />
                                 </div>
                             ))}
                     </div>

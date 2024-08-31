@@ -82,6 +82,11 @@
     background-color: #f7f7f7;
     border: 1px solid #ddd;
     border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.sorting-buttons-dark {
+    border: 1px solid #3a3a3a;
 }
 
 @media (min-width: 768px) {
@@ -93,11 +98,11 @@
 .active {
     background-color: #d8115b;
     color: #fff;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s ease;
 }
 
 .sorting-buttons:hover {
     background-color: #d8115b;
     color: #fff;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s ease;
 }

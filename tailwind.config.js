@@ -22,6 +22,7 @@ module.exports = {
             orangeBright: "#FF8C42",
             purpleDeep: "#6A0DAD",
             blueCool: "#1E90FF",
+            darkBlackMode: "#121212 ",
         },
     },
     plugins: [],

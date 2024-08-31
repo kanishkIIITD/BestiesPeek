@@ -17,7 +17,7 @@ const fetchUserData = async (streamerName) => {
     }
 };
 
-const OfflineCard = ({ streamerData }) => {
+const OfflineCard = ({ streamerData, darkMode }) => {
     const [result, setResult] = useState({});
     const [loading, setLoading] = useState(false);
 
@@ -38,7 +38,13 @@ const OfflineCard = ({ streamerData }) => {
     // }
 
     return (
-        <div className="shadow-md shadow-gray-500 shadow-blur-md card h-[330px] w-[240px] md:h-[360px] md:w-[300px] flex flex-col p-2 border border-[#aaa] bg-[#e5e5e5] rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 hover:shadow-blur transition-all duration-200">
+        <div
+            className={`shadow-md shadow-gray-500 shadow-blur-md card h-[330px] w-[240px] md:h-[360px] md:w-[300px] flex flex-col p-2 border ${
+                darkMode
+                    ? "border-[#3A3A3A] bg-[#2A2A2A]"
+                    : "border-[#ccc] bg-[#f2f2f2]"
+            } rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 hover:shadow-blur transition-all duration-200`}
+        >
             {loading ? (
                 <div class="spinner"></div>
             ) : (
@@ -51,10 +57,20 @@ const OfflineCard = ({ streamerData }) => {
                         />
                     </div>
                     <div className="flex flex-col items-center">
-                        <h3 className="text-[#000080] font-bold">
+                        <h3
+                            className={`${
+                                darkMode ? "text-[#fff]" : "text-[#000080]"
+                            } font-bold`}
+                        >
                             {result?.display_name}
                         </h3>
-                        <p className="font-semibold">Offline</p>
+                        <p
+                            className={`font-semibold ${
+                                darkMode ? "text-[#B3B3B3]" : ""
+                            }`}
+                        >
+                            Offline
+                        </p>
                     </div>
                 </div>
             )}

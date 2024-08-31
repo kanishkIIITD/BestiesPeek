@@ -1,11 +1,9 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import bestieImage from "./assets/besties.jpg";
 import albuterolBoysImage from "./assets/Albuterol Boys.png";
 import { Cards } from "./components/Cards";
-
-// import fetchStreamerData from "./api/fetchStreamerData";
 
 function App() {
     const besties = {
@@ -44,12 +42,44 @@ function App() {
         ],
     };
 
+    const darkModeStorageKey = "darkMode";
+
+    const saveDarkModeToLocalStorage = (darkMode) => {
+        localStorage.setItem(darkModeStorageKey, darkMode.toString());
+    };
+
+    const getDarkModeFromLocalStorage = () => {
+        const storedDarkMode = localStorage.getItem(darkModeStorageKey);
+        return storedDarkMode === "true";
+    };
+
     const [tab, setTab] = useState("Besties"); // Besties, Albuterol Boys, Youtube Clips
+    const [darkMode, setDarkMode] = useState(getDarkModeFromLocalStorage());
+
+    const toggleDarkMode = () => {
+        const newDarkMode = !darkMode;
+        setDarkMode(newDarkMode);
+        saveDarkModeToLocalStorage(newDarkMode);
+    };
+
+    useEffect(() => {
+        const storedDarkMode = getDarkModeFromLocalStorage();
+        setDarkMode(storedDarkMode);
+    }, []);
 
     return (
         <div className={`w-full bg-pink-500 flex justify-center items-center `}>
-            <div className="bg-white w-[95%] h-[95%] rounded-md my-2 flex flex-col items-center">
-                <Navbar tab={tab} setTab={setTab} />
+            <div
+                className={`bg-${
+                    darkMode ? "darkBlackMode" : "white"
+                } w-[95%] h-[95%] rounded-md my-2 flex flex-col items-center`}
+            >
+                <Navbar
+                    tab={tab}
+                    setTab={setTab}
+                    darkMode={darkMode}
+                    toggleDarkMode={toggleDarkMode}
+                />
 
                 <div className={`border-2 border-pink-500 mb-4 w-full`}></div>
 
@@ -72,7 +102,13 @@ function App() {
                         </div>
 
                         <div className="py-10 mb-10 text-center ">
-                            <h1 className="text-3xl font-bold text-darkgrey-500">
+                            <h1
+                                className={`text-3xl font-bold ${
+                                    darkMode
+                                        ? "text-[#B3B3B3]"
+                                        : "text-darkgrey-500"
+                                }`}
+                            >
                                 {tab === "Besties"
                                     ? "The Besties is a criminal gang founded on December 15th, 2023 by Fanny, Ming, and 4Head."
                                     : tab === "Albuterol Boys"
@@ -92,6 +128,7 @@ function App() {
                                     tab === "Besties" ? besties : Albuterol_Boys
                                 }
                                 tab={tab}
+                                darkMode={darkMode}
                             />
                         </div>
                     </div>
