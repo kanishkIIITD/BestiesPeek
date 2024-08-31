@@ -70,8 +70,8 @@ function App() {
     return (
         <div className={`w-full bg-pink-500 flex justify-center items-center `}>
             <div
-                className={`bg-${
-                    darkMode ? "darkBlackMode" : "white"
+                className={`${
+                    darkMode ? "bg-darkBlackMode" : "bg-white"
                 } w-[95%] h-[95%] rounded-md my-2 flex flex-col items-center`}
             >
                 <Navbar
@@ -103,11 +103,11 @@ function App() {
 
                         <div className="py-10 mb-10 text-center ">
                             <h1
-                                className={`text-3xl font-bold ${
+                                className={`text-2xl md:text-3xl font-bold ${
                                     darkMode
-                                        ? "text-[#B3B3B3]"
+                                        ? "text-lightgrey"
                                         : "text-darkgrey-500"
-                                }`}
+                                } mx-10`}
                             >
                                 {tab === "Besties"
                                     ? "The Besties is a criminal gang founded on December 15th, 2023 by Fanny, Ming, and 4Head."

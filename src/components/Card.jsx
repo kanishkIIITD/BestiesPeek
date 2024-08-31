@@ -11,8 +11,8 @@ export const Card = ({ streamerData, darkMode }) => {
                 <div
                     className={`shadow-md shadow-gray-500 shadow-blur-md card h-[330px] w-[240px] md:h-[360px] md:w-[300px] flex flex-col justify-between p-2 border ${
                         darkMode
-                            ? "border-[#3A3A3A] bg-[#2A2A2A]"
-                            : "border-[#ccc] bg-[#f2f2f2]"
+                            ? "border-cardDark1 bg-cardDark2"
+                            : "border-cardLight1 bg-cardLight2"
                     } rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 hover:shadow-blur transition-all duration-200`}
                 >
                     <img
@@ -25,25 +25,25 @@ export const Card = ({ streamerData, darkMode }) => {
                     <div className="card-body flex flex-col p-2">
                         <h3
                             className={`${
-                                darkMode ? "text-[#5B8DEF]" : "text-[#000080]"
+                                darkMode ? "text-lightblue1" : "text-darkBlue"
                             } font-semibold whitespace-nowrap overflow-hidden font-500 my-2 mt-4 mb-1 leading-tight`}
                         >
                             {streamerData.user_name}
                         </h3>
                         <p
                             className={`${
-                                darkMode ? "text-[#87CEEB]" : "text-[#0000ff]"
+                                darkMode ? "text-lightblue2" : "text-darkBlue1"
                             } text-sm`}
                         >
                             {streamerData?.stream_info?.stream_title}
                         </p>
-                        <div className="viewer-count font-bold text-[#ff0000] text-sm">
+                        <div className="viewer-count font-bold text-red-700 text-sm">
                             {streamerData?.stream_info?.viewer_count}
                         </div>
                     </div>
                     <div
                         className={`game-name ${
-                            darkMode ? "text-[#B3B3B3]" : "text-[#555555]"
+                            darkMode ? "text-lightgrey" : "text-darkgrey2"
                         }`}
                     >
                         {streamerData?.stream_info?.game_name}

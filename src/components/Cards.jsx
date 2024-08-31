@@ -91,9 +91,9 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         onClick={() => setSort("All")}
                         className={`sorting-buttons ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         } ${
-                            sort === "All" && "active bg-[#d8115b] border-white"
+                            sort === "All" && "active bg-pink-600 border-white"
                         } `}
                     >
                         All
@@ -101,11 +101,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                     <button
                         onClick={() => setSort("Live")}
                         className={`sorting-buttons ${
-                            sort === "Live" &&
-                            "active bg-[#d8115b] border-white"
+                            sort === "Live" && "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         Live
@@ -114,10 +113,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         onClick={() => setSort("Offline")}
                         className={`sorting-buttons ${
                             sort === "Offline" &&
-                            "active bg-[#d8115b] border-white"
+                            "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         Offline
@@ -135,10 +134,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         }}
                         className={`sorting-buttons ${
                             sort === "Viewer Count" &&
-                            "active bg-[#d8115b] border-white"
+                            "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         Viewers{" "}
@@ -152,10 +151,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         onClick={() => setSort("Leaders")}
                         className={`sorting-buttons ${
                             sort === "Leaders" &&
-                            "active bg-[#d8115b] border-white"
+                            "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         Leaders
@@ -163,10 +162,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                     <button
                         onClick={() => setSort("OGs")}
                         className={`sorting-buttons ${
-                            sort === "OGs" && "active bg-[#d8115b] border-white"
+                            sort === "OGs" && "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         OGs
@@ -175,10 +174,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         onClick={() => setSort("Members")}
                         className={`sorting-buttons ${
                             sort === "Members" &&
-                            "active bg-[#d8115b] border-white"
+                            "active bg-pink-600 border-white"
                         } ${
                             darkMode &&
-                            "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                            "bg-buttonGrey text-white sorting-buttons-dark"
                         }`}
                     >
                         Members
@@ -189,10 +188,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                                 onClick={() => setSort("Pet")}
                                 className={`sorting-buttons ${
                                     sort === "Pet" &&
-                                    "active bg-[#d8115b] border-white"
+                                    "active bg-pink-600 border-white"
                                 } ${
                                     darkMode &&
-                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                                    "bg-buttonGrey text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Pet
@@ -201,10 +200,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                                 onClick={() => setSort("Hangarounds")}
                                 className={`sorting-buttons ${
                                     sort === "Hangarounds" &&
-                                    "active bg-[#d8115b] border-white"
+                                    "active bg-pink-600 border-white"
                                 } ${
                                     darkMode &&
-                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                                    "bg-buttonGrey text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Hangarounds
@@ -213,10 +212,10 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                                 onClick={() => setSort("Kittens")}
                                 className={`sorting-buttons ${
                                     sort === "Kittens" &&
-                                    "active bg-[#d8115b] border-white"
+                                    "active bg-pink-600 border-white"
                                 } ${
                                     darkMode &&
-                                    "bg-[#2A2A2A] text-white sorting-buttons-dark"
+                                    "bg-buttonGrey text-white sorting-buttons-dark"
                                 }`}
                             >
                                 Kittens

@@ -39,7 +39,7 @@ export const Navbar = ({ tab, setTab, darkMode, toggleDarkMode }) => {
 
             <div className="flex gap-10 items-center ">
                 <div
-                    className={`flex gap-4 rounded-xl bg-pink-500 text-white p-3 h-fit`}
+                    className={`flex gap-4 rounded-xl bg-pink-500 text-white p-1 sm:p-2 md:p-3 h-fit`}
                 >
                     <button
                         className={`${
