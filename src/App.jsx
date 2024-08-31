@@ -86,7 +86,7 @@ function App() {
                         ></div>
 
                         {/* className="bg-gradient-to-r from-[#D8115B] to-[#D2B48C]" */}
-                        <div className="relative w-full">
+                        <div className={`relative w-full `}>
                             <Cards
                                 streamers={
                                     tab === "Besties" ? besties : Albuterol_Boys

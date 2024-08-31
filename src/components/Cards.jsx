@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card } from "./Card";
 import fetchStreamerData from "../api/fetchStreamerData";
 import OfflineCard from "./OfflineCard";
+import { MdMenuOpen } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
+import kittensImg from "../assets/kittens.jpg";
 
 const kittens = [
     "caramel",
@@ -18,8 +21,12 @@ export const Cards = ({ streamers, tab }) => {
     const [offlineStreamers, setOfflineStreamers] = useState({});
     const [sort, setSort] = useState("All");
     const [viewerCountSortOrder, setViewerCountSortOrder] = useState("desc");
+    const [showSortingButtons, setShowSortingButtons] = useState(false);
 
     useEffect(() => {
+        setSort("All");
+        setShowSortingButtons(false);
+
         const streamersArray = Object.values(streamers).flat();
         // console.log("streamersArray", streamersArray);
         fetchStreamerData(streamersArray).then((data) => {
@@ -51,40 +58,126 @@ export const Cards = ({ streamers, tab }) => {
             setLiveStreamers(live);
             setOfflineStreamers(offline);
         });
-    }, [streamers]);
+    }, [streamers, tab]);
+
+    useEffect(() => {});
 
     return (
-        <div className="w-full relative">
-            <div className="flex gap-5 absolute top-0 left-0 flex-col">
-                <button onClick={() => setSort("All")}>All</button>
-                <button onClick={() => setSort("Live")}>Live</button>
-                <button onClick={() => setSort("Offline")}>Offline</button>
+        <div className="w-full">
+            <div className="flex items-center gap-5 ml-10 mb-5 h-fit">
                 <button
+                    className="text-black font-bold transition-all duration-300 p-[10px] h-fit"
                     onClick={() => {
-                        if (sort === "Viewer Count") {
-                            setViewerCountSortOrder(
-                                viewerCountSortOrder === "desc" ? "asc" : "desc"
-                            );
-                        }
-                        setSort("Viewer Count");
+                        setShowSortingButtons(!showSortingButtons);
                     }}
                 >
-                    Viewer Count
+                    {showSortingButtons ? (
+                        <AiOutlineClose size={30} />
+                    ) : (
+                        <MdMenuOpen size={30} />
+                    )}
                 </button>
-                <button onClick={() => setSort("Leaders")}>Leaders</button>
-                <button onClick={() => setSort("OGs")}>OGs</button>
-                <button onClick={() => setSort("Members")}>Members</button>
-                {tab === "Besties" && (
-                    <>
-                        <button onClick={() => setSort("Pet")}>Pet</button>
-                        <button onClick={() => setSort("Hangarounds")}>
-                            Hangarounds
-                        </button>
-                        <button onClick={() => setSort("Kittens")}>
-                            Kittens
-                        </button>
-                    </>
-                )}
+                <div
+                    className={` ${
+                        showSortingButtons
+                            ? "visible  opacity-100 !important"
+                            : "invisible  opacity-0 !important"
+                    } flex flex-wrap justify-center gap-5  transition-all duration-300`}
+                >
+                    <button
+                        onClick={() => setSort("All")}
+                        className={`sorting-buttons ${
+                            sort === "All" && "active"
+                        }`}
+                    >
+                        All
+                    </button>
+                    <button
+                        onClick={() => setSort("Live")}
+                        className={`sorting-buttons ${
+                            sort === "Live" && "active"
+                        }`}
+                    >
+                        Live
+                    </button>
+                    <button
+                        onClick={() => setSort("Offline")}
+                        className={`sorting-buttons ${
+                            sort === "Offline" && "active"
+                        }`}
+                    >
+                        Offline
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (sort === "Viewer Count") {
+                                setViewerCountSortOrder(
+                                    viewerCountSortOrder === "desc"
+                                        ? "asc"
+                                        : "desc"
+                                );
+                            }
+                            setSort("Viewer Count");
+                        }}
+                        className={`sorting-buttons ${
+                            sort === "Viewer Count" && "active"
+                        }`}
+                    >
+                        Viewers
+                    </button>
+                    <button
+                        onClick={() => setSort("Leaders")}
+                        className={`sorting-buttons ${
+                            sort === "Leaders" && "active"
+                        }`}
+                    >
+                        Leaders
+                    </button>
+                    <button
+                        onClick={() => setSort("OGs")}
+                        className={`sorting-buttons ${
+                            sort === "OGs" && "active"
+                        }`}
+                    >
+                        OGs
+                    </button>
+                    <button
+                        onClick={() => setSort("Members")}
+                        className={`sorting-buttons ${
+                            sort === "Members" && "active"
+                        }`}
+                    >
+                        Members
+                    </button>
+                    {tab === "Besties" && (
+                        <>
+                            <button
+                                onClick={() => setSort("Pet")}
+                                className={`sorting-buttons ${
+                                    sort === "Pet" && "active"
+                                }`}
+                            >
+                                Pet
+                            </button>
+                            <button
+                                onClick={() => setSort("Hangarounds")}
+                                className={`sorting-buttons ${
+                                    sort === "Hangarounds" && "active"
+                                }`}
+                            >
+                                Hangarounds
+                            </button>
+                            <button
+                                onClick={() => setSort("Kittens")}
+                                className={`sorting-buttons ${
+                                    sort === "Kittens" && "active"
+                                }`}
+                            >
+                                Kittens
+                            </button>
+                        </>
+                    )}
+                </div>
             </div>
 
             {sort === "All" &&
@@ -119,7 +212,7 @@ export const Cards = ({ streamers, tab }) => {
                         key={role}
                         className="role-section flex flex-col items-center"
                     >
-                        {liveStreamers[role].length > 0 && (
+                        {liveStreamers[role]?.length > 0 && (
                             <>
                                 <h2 className="text-3xl font-bold underline">
                                     {role.toUpperCase()}
@@ -145,7 +238,7 @@ export const Cards = ({ streamers, tab }) => {
                         key={role}
                         className="role-section flex flex-col items-center"
                     >
-                        {offlineStreamers[role].length > 0 && (
+                        {offlineStreamers[role]?.length > 0 && (
                             <>
                                 <h2 className="text-3xl font-bold underline">
                                     {role.toUpperCase()}
@@ -336,7 +429,7 @@ export const Cards = ({ streamers, tab }) => {
                         key={role}
                         className="role-section flex flex-col items-center"
                     >
-                        {liveStreamers[role].length > 0 && (
+                        {liveStreamers[role]?.length > 0 && (
                             <>
                                 <h2 className="text-3xl font-bold underline">
                                     {role.toUpperCase()}
@@ -352,7 +445,7 @@ export const Cards = ({ streamers, tab }) => {
                                                       b.stream_info
                                                           .viewer_count;
                                         })
-                                        .map((streamerData) => (
+                                        ?.map((streamerData) => (
                                             <Card
                                                 key={streamerData.streamer_id}
                                                 streamerData={streamerData}
@@ -364,7 +457,24 @@ export const Cards = ({ streamers, tab }) => {
                     </div>
                 ))}
 
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ">
+                {sort === "Kittens" && tab === "Besties" && (
+                    <div
+                        // style={{ "--image-url": `url(${kittensImg})` }}
+                        className="flex flex-col lg:flex-row items-center gap-4 mt-10 mx-10"
+                    >
+                        <img
+                            src={kittensImg}
+                            alt="kittens"
+                            className="rounded-full w-2/3"
+                        />
+                        <p className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-pink-500 opacity-75 italic">
+                            Kitten maintenance fees paid in full. Treats and
+                            snuggles forthcoming. 🐱
+                        </p>
+                    </div>
+                )}
+
                 {sort === "Kittens" && (
                     <div className="flex flex-wrap justify-center gap-10 px-20 mt-10">
                         {Object.values(liveStreamers)
