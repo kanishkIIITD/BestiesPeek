@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@vercel/analytics": "^1.3.1",
+        "@vercel/speed-insights": "^1.0.12",
         "anime-quotes-api": "^1.2.0",
         "axios": "^1.7.5",
         "concurrently": "^8.2.2",
