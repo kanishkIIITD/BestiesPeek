@@ -6,6 +6,7 @@ import { MdMenuOpen } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import kittensImg from "../assets/kittens.jpg";
 import { FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
+import zoroGif from "../assets/zoro.gif";
 
 const kittens = [
     "caramel",
@@ -26,7 +27,6 @@ export const Cards = ({ streamers, tab, darkMode }) => {
 
     useEffect(() => {
         setSort("All");
-
         setShowSortingButtons(false);
 
         const streamersArray = Object.values(streamers).flat();
@@ -62,10 +62,8 @@ export const Cards = ({ streamers, tab, darkMode }) => {
         });
     }, [streamers, tab]);
 
-    useEffect(() => {});
-
     return (
-        <div className="w-full">
+        <div className="w-full relative">
             <div className="flex items-center gap-5 ml-10 mb-5 h-fit">
                 <button
                     className={`text-black font-bold transition-all duration-300 p-[10px] h-fit ${
@@ -81,150 +79,174 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                         <MdMenuOpen size={30} />
                     )}
                 </button>
-                <div
-                    className={` ${
-                        showSortingButtons
-                            ? "visible  opacity-100 !important"
-                            : "invisible  opacity-0 !important"
-                    } flex flex-wrap justify-center gap-5  transition-all duration-300`}
-                >
-                    <button
-                        onClick={() => setSort("All")}
-                        className={`sorting-buttons ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        } ${
-                            sort === "All" && "active bg-pink-600 border-white"
-                        } `}
+                {showSortingButtons ? (
+                    <div
+                        className={` ${
+                            showSortingButtons
+                                ? "visible  opacity-100 !important"
+                                : "invisible  opacity-0 !important"
+                        } flex flex-wrap justify-center gap-5  transition-all duration-300`}
                     >
-                        All
-                    </button>
-                    <button
-                        onClick={() => setSort("Live")}
-                        className={`sorting-buttons ${
-                            sort === "Live" && "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        Live
-                    </button>
-                    <button
-                        onClick={() => setSort("Offline")}
-                        className={`sorting-buttons ${
-                            sort === "Offline" &&
-                            "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        Offline
-                    </button>
-                    <button
-                        onClick={() => {
-                            if (sort === "Viewer Count") {
-                                setViewerCountSortOrder(
-                                    viewerCountSortOrder === "desc"
-                                        ? "asc"
-                                        : "desc"
-                                );
-                            }
-                            setSort("Viewer Count");
-                        }}
-                        className={`sorting-buttons ${
-                            sort === "Viewer Count" &&
-                            "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        Viewers{" "}
-                        {viewerCountSortOrder === "desc" ? (
-                            <FaArrowDownLong />
-                        ) : (
-                            <FaArrowUpLong />
+                        <button
+                            onClick={() => setSort("All")}
+                            className={`sorting-buttons ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            } ${
+                                sort === "All" &&
+                                "active bg-pink-600 border-white"
+                            } `}
+                        >
+                            All
+                        </button>
+                        <button
+                            onClick={() => setSort("Live")}
+                            className={`sorting-buttons ${
+                                sort === "Live" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            Live
+                        </button>
+                        <button
+                            onClick={() => setSort("Offline")}
+                            className={`sorting-buttons ${
+                                sort === "Offline" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            Offline
+                        </button>
+                        <button
+                            onClick={() => {
+                                if (sort === "Viewer Count") {
+                                    setViewerCountSortOrder(
+                                        viewerCountSortOrder === "desc"
+                                            ? "asc"
+                                            : "desc"
+                                    );
+                                }
+                                setSort("Viewer Count");
+                            }}
+                            className={`sorting-buttons ${
+                                sort === "Viewer Count" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            Viewers{" "}
+                            {viewerCountSortOrder === "desc" ? (
+                                <FaArrowDownLong />
+                            ) : (
+                                <FaArrowUpLong />
+                            )}
+                        </button>
+                        <button
+                            onClick={() => setSort("Leaders")}
+                            className={`sorting-buttons ${
+                                sort === "Leaders" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            Leaders
+                        </button>
+                        <button
+                            onClick={() => setSort("OGs")}
+                            className={`sorting-buttons ${
+                                sort === "OGs" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            OGs
+                        </button>
+                        <button
+                            onClick={() => setSort("Members")}
+                            className={`sorting-buttons ${
+                                sort === "Members" &&
+                                "active bg-pink-600 border-white"
+                            } ${
+                                darkMode &&
+                                "bg-buttonGrey text-white sorting-buttons-dark"
+                            }`}
+                        >
+                            Members
+                        </button>
+                        {tab === "Besties" && (
+                            <>
+                                <button
+                                    onClick={() => setSort("Pet")}
+                                    className={`sorting-buttons ${
+                                        sort === "Pet" &&
+                                        "active bg-pink-600 border-white"
+                                    } ${
+                                        darkMode &&
+                                        "bg-buttonGrey text-white sorting-buttons-dark"
+                                    }`}
+                                >
+                                    Pet
+                                </button>
+                                <button
+                                    onClick={() => setSort("Hangarounds")}
+                                    className={`sorting-buttons ${
+                                        sort === "Hangarounds" &&
+                                        "active bg-pink-600 border-white"
+                                    } ${
+                                        darkMode &&
+                                        "bg-buttonGrey text-white sorting-buttons-dark"
+                                    }`}
+                                >
+                                    Hangarounds
+                                </button>
+                                <button
+                                    onClick={() => setSort("Kittens")}
+                                    className={`sorting-buttons ${
+                                        sort === "Kittens" &&
+                                        "active bg-pink-600 border-white"
+                                    } ${
+                                        darkMode &&
+                                        "bg-buttonGrey text-white sorting-buttons-dark"
+                                    }`}
+                                >
+                                    Kittens
+                                </button>
+                            </>
                         )}
-                    </button>
-                    <button
-                        onClick={() => setSort("Leaders")}
-                        className={`sorting-buttons ${
-                            sort === "Leaders" &&
-                            "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        Leaders
-                    </button>
-                    <button
-                        onClick={() => setSort("OGs")}
-                        className={`sorting-buttons ${
-                            sort === "OGs" && "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        OGs
-                    </button>
-                    <button
-                        onClick={() => setSort("Members")}
-                        className={`sorting-buttons ${
-                            sort === "Members" &&
-                            "active bg-pink-600 border-white"
-                        } ${
-                            darkMode &&
-                            "bg-buttonGrey text-white sorting-buttons-dark"
-                        }`}
-                    >
-                        Members
-                    </button>
-                    {tab === "Besties" && (
-                        <>
-                            <button
-                                onClick={() => setSort("Pet")}
-                                className={`sorting-buttons ${
-                                    sort === "Pet" &&
-                                    "active bg-pink-600 border-white"
-                                } ${
-                                    darkMode &&
-                                    "bg-buttonGrey text-white sorting-buttons-dark"
-                                }`}
-                            >
-                                Pet
-                            </button>
-                            <button
-                                onClick={() => setSort("Hangarounds")}
-                                className={`sorting-buttons ${
-                                    sort === "Hangarounds" &&
-                                    "active bg-pink-600 border-white"
-                                } ${
-                                    darkMode &&
-                                    "bg-buttonGrey text-white sorting-buttons-dark"
-                                }`}
-                            >
-                                Hangarounds
-                            </button>
-                            <button
-                                onClick={() => setSort("Kittens")}
-                                className={`sorting-buttons ${
-                                    sort === "Kittens" &&
-                                    "active bg-pink-600 border-white"
-                                } ${
-                                    darkMode &&
-                                    "bg-buttonGrey text-white sorting-buttons-dark"
-                                }`}
-                            >
-                                Kittens
-                            </button>
-                        </>
-                    )}
-                </div>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
             </div>
+
+            {!showSortingButtons && (
+                <div className="flex justify-center items-center gap-5  transition-all duration-300 mb-10 mx-4">
+                    <img
+                        src={zoroGif}
+                        alt="zoro"
+                        className="rounded-full w-40"
+                    />
+                    <p
+                        className={`text-xl md:text-2xl lg:text-3xl font-bold ${
+                            darkMode && "text-white"
+                        } text-center `}
+                    >
+                        The One Piece is Real !!!!
+                    </p>
+                </div>
+            )}
 
             {sort === "All" &&
                 Object.keys(streamers).map((role) => (
