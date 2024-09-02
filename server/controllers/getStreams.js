@@ -11,28 +11,25 @@ exports.getStreamerData = async (req, res) => {
 
     try {
         const batchSize = 10;
-        const batches = [];
+        const results = [];
         for (let i = 0; i < streamers.length; i += batchSize) {
-            batches.push(streamers.slice(i, i + batchSize));
+            const batch = streamers.slice(i, i + batchSize);
+
+            const batchResult = await Streamer.find({
+                user_name: {
+                    $in: batch.map(
+                        (streamer) => new RegExp(`^${streamer}$`, "i")
+                    ),
+                },
+                is_live: true,
+            });
+
+            results.push(...batchResult);
         }
 
-        const results = await Promise.all(
-            batches.map(async (batch) => {
-                return await Streamer.find({
-                    user_name: {
-                        $in: streamers.map(
-                            (streamer) => new RegExp(`^${streamer}$`, "i")
-                        ),
-                    },
-                    is_live: true,
-                });
-            })
-        );
-
-        const streamerData = results.flat();
-
-        res.status(200).json({ data: streamerData });
+        res.status(200).json({ data: results });
     } catch (error) {
+        console.log("Error while fetching streamers:", error);
         res.status(500).json({ error: "Failed to fetch streamers" });
     }
 };

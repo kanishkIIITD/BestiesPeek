@@ -14,12 +14,13 @@ const fetchUserData = async (streamerName) => {
         return result.data.data[0];
     } catch (error) {
         console.log("Error while fetching:", error);
+        return null;
     }
 };
 
 const OfflineCard = ({ streamerData, darkMode }) => {
-    const [result, setResult] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (streamerData) {
@@ -27,8 +28,8 @@ const OfflineCard = ({ streamerData, darkMode }) => {
             fetchUserData(streamerData.user_name).then((data) => {
                 setResult(data);
                 // console.log(data);
+                setLoading(false);
             });
-            setLoading(false);
         }
     }, [streamerData]);
     // console.log(result);
@@ -51,8 +52,8 @@ const OfflineCard = ({ streamerData, darkMode }) => {
                 <div className="flex flex-col items-center justify-center h-full gap-10">
                     <div>
                         <img
-                            src={result?.profile_image_url}
-                            alt={result?.display_name}
+                            src={result?.profile_image_url || ""}
+                            alt={result?.display_name || "Streamer"}
                             className="rounded-full w-[150px] h-[150px] object-cover"
                             loading="lazy"
                         />
@@ -63,7 +64,7 @@ const OfflineCard = ({ streamerData, darkMode }) => {
                                 darkMode ? "text-white" : "text-darkBlue"
                             } font-bold`}
                         >
-                            {result?.display_name}
+                            {result?.display_name || "Unknown Streamer"}
                         </h3>
                         <p
                             className={`font-semibold ${
