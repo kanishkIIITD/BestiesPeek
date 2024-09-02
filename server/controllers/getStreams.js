@@ -10,7 +10,7 @@ exports.getStreamerData = async (req, res) => {
         return res.status(400).send({ message: "Streamer name is required" });
 
     try {
-        const batchSize = 10;
+        const batchSize = 5;
         const results = [];
         for (let i = 0; i < streamers.length; i += batchSize) {
             const batch = streamers.slice(i, i + batchSize);
@@ -22,7 +22,7 @@ exports.getStreamerData = async (req, res) => {
                     ),
                 },
                 is_live: true,
-            });
+            }).lean();
 
             results.push(...batchResult);
         }
