@@ -1,9 +1,10 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { useEffect, useState } from "react";
-import bestieImage from "./assets/besties.jpg";
-import albuterolBoysImage from "./assets/Albuterol Boys.png";
+// import bestieImage from "./assets/besties.jpg";
+// import albuterolBoysImage from "./assets/Albuterol Boys.png";
 import { Cards } from "./components/Cards";
+// import YoutubeClips from "./components/YoutubeClips";
 
 function App() {
     const besties = {
@@ -85,7 +86,7 @@ function App() {
 
                 {tab === "Besties" || tab === "Albuterol Boys" ? (
                     <div className="flex flex-col items-center w-full">
-                        <div>
+                        {/* <div>
                             <img
                                 src={
                                     tab === "Besties"
@@ -98,6 +99,7 @@ function App() {
                                 height={700}
                                 width={700}
                                 className="rounded-xl"
+                                loading="lazy"
                             />
                         </div>
 
@@ -115,7 +117,7 @@ function App() {
                                     ? "The Albuterol Boys are a sub-crew of Cypress lead by Cypress Captain Marty Banks."
                                     : ""}
                             </h1>
-                        </div>
+                        </div> */}
 
                         <div
                             className={`border-2 border-pink-500 mb-4 w-full`}
@@ -133,6 +135,9 @@ function App() {
                         </div>
                     </div>
                 ) : null}
+                {/* {tab === "Youtube Clips" ? (
+                    <YoutubeClips darkMode={darkMode} />
+                ) : null} */}
             </div>
         </div>
     );
