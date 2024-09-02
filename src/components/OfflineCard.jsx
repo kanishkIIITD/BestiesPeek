@@ -47,7 +47,7 @@ const OfflineCard = ({ streamerData, darkMode }) => {
             } rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 hover:shadow-blur transition-all duration-200`}
         >
             {loading ? (
-                <div class="spinner"></div>
+                <div className="spinner"></div>
             ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-10">
                     <div>

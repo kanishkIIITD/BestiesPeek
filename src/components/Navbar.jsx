@@ -1,5 +1,5 @@
 import React from "react";
-import bestieLogo from "../assets/Besties-pink-logo.jpg";
+import bestieLogo from "../assets/Besties-pink-logo.png";
 import albuterolBoysLogo from "../assets/ABlogo.jpg";
 import youtubeLogo from "../assets/youtube.jpg";
 import { MdLightMode, MdDarkMode } from "react-icons/md";

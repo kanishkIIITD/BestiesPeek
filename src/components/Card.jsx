@@ -3,8 +3,8 @@ import React from "react";
 export const Card = ({ streamerData, darkMode }) => {
     // console.log(streamerData);
 
-    const width = 300; // desired width
-    const height = 200; // desired height
+    const width = 1280; // desired width
+    const height = 720; // desired height
 
     const thumbnailUrl = streamerData?.stream_info?.thumbnail_url
         ? streamerData.stream_info.thumbnail_url
