@@ -59,7 +59,7 @@ export const Cards = ({ streamers, tab, darkMode }) => {
             setLiveStreamers(live);
             setOfflineStreamers(offline);
         });
-    }, [streamers, tab]);
+    }, [streamers, tab, sort]);
 
     useEffect(() => {});
 
@@ -563,6 +563,7 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                             src={kittensImg}
                             alt="kittens"
                             className="rounded-full w-2/3"
+                            loading="lazy"
                         />
                         <p className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-pink-500 opacity-75 italic">
                             Kitten maintenance fees paid in full. Treats and

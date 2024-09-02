@@ -34,6 +34,7 @@ export const Navbar = ({ tab, setTab, darkMode, toggleDarkMode }) => {
                     // height={100}
                     // width={100}
                     className="rounded-full h-16"
+                    loading="lazy"
                 />
             </div>
 

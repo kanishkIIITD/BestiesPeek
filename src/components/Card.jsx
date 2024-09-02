@@ -21,6 +21,7 @@ export const Card = ({ streamerData, darkMode }) => {
                             .replace("{height}", height)}
                         alt={streamerData.user_name}
                         className="w-full h-[135px] md:h-[170px] object-cover"
+                        loading="lazy"
                     />
                     <div className="card-body flex flex-col p-2">
                         <h3

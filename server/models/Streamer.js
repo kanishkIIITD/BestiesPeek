@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const streamerSchema = new mongoose.Schema({
-    user_name: String,
+    user_name: { type: String, required: true, unique: true, index: true }, // String,
     streamer_id: String,
     profile_image_url: String,
     channel_url: String,
-    is_live: Boolean,
+    is_live: { type: Boolean, required: true, index: true }, // Boolean,
     last_live_update: Date,
     description: String,
 

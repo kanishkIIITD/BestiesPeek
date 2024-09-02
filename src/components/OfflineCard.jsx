@@ -54,6 +54,7 @@ const OfflineCard = ({ streamerData, darkMode }) => {
                             src={result?.profile_image_url}
                             alt={result?.display_name}
                             className="rounded-full w-[150px] h-[150px] object-cover"
+                            loading="lazy"
                         />
                     </div>
                     <div className="flex flex-col items-center">
