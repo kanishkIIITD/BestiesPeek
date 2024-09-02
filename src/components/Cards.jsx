@@ -26,6 +26,7 @@ export const Cards = ({ streamers, tab, darkMode }) => {
 
     useEffect(() => {
         setSort("All");
+
         setShowSortingButtons(false);
 
         const streamersArray = Object.values(streamers).flat();
@@ -59,7 +60,7 @@ export const Cards = ({ streamers, tab, darkMode }) => {
             setLiveStreamers(live);
             setOfflineStreamers(offline);
         });
-    }, [streamers, tab, sort]);
+    }, [streamers, tab]);
 
     useEffect(() => {});
 
