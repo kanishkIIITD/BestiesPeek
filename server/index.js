@@ -7,19 +7,16 @@ const cron = require("node-cron");
 const { checkLiveStatus } = require("./cron/cron");
 
 const routes = require("./routes/routes");
-// const logger = require("./config/logger");
-// const YoutubeVideos = require("./models/YoutubeVideos");
-// const YoutubeController = require("./controllers/getYoutubeVideos");
+const YoutubeVideos = require("./models/YoutubeVideos");
+const YoutubeController = require("./controllers/getYoutubeVideos");
 
 // Validate essential environment variables
 if (!process.env.YOUTUBE_API_KEY) {
-    // logger.error("YOUTUBE_API_KEY is not set in environment variables");
     console.log("YOUTUBE_API_KEY is not set in environment variables");
     process.exit(1);
 }
 
 if (!process.env.MONGO_URI) {
-    // logger.error("MONGO_URI is not set in environment variables");
     console.log("MONGO_URI is not set in environment variables");
     process.exit(1);
 }
@@ -89,30 +86,40 @@ cron.schedule("*/2 * * * *", async () => {
 });
 
 // Cron job to fetch youtube videos of channels
-// cron.schedule("*/2 * * * *", async () => {
-//     console.log("------------------------------------");
-//     console.log("Running the scheduled job to update YouTube data");
-//     try {
-//         const channels = await YoutubeVideos.find(
-//             {},
-//             {
-//                 channelId: 1,
-//             }
-//         );
+cron.schedule("*/2 * * * *", async () => {
+    console.log("------------------------------------");
+    console.log("Running the scheduled job to update YouTube data");
+    try {
+        const channels = await YoutubeVideos.find(
+            {},
+            {
+                channelId: 1,
+            }
+        );
 
-//         for (const channel of channels) {
-//             await YoutubeController.fetchVideos({
-//                 params: { channelId: channel.channelId },
-//             });
-//         }
+        for (const channel of channels) {
+            // await YoutubeController.fetchVideos({
+            //     params: { channelId: channel.channelId },
+            // });
 
-//         console.log("YouTube data updated successfully");
-//         console.log("------------------------------------");
-//     } catch (error) {
-//         console.log("Error during scheduled job:", error);
-//         console.log("------------------------------------");
-//     }
-// });
+            const result = await YoutubeController.fetchVideosLogic(
+                channel.channelId
+            );
+
+            if (result.success) {
+                console.log(`Updated channel: ${channel.channelId}`);
+            } else {
+                console.log(`Failed to update channel: ${channel.channelId}`);
+            }
+        }
+
+        console.log("YouTube data updated successfully");
+        console.log("------------------------------------");
+    } catch (error) {
+        console.log("Error during scheduled job:", error);
+        console.log("------------------------------------");
+    }
+});
 app.use("/api/v1", routes);
 
 app.listen(PORT, () => {

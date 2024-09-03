@@ -2,7 +2,7 @@ import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Cards } from "./components/Cards";
-// import YoutubeClips from "./components/YoutubeClips";
+import YoutubeClips from "./components/YoutubeClips";
 
 const LazyImageAndDescription = lazy(() =>
     import("./components/LazyImageAndDescription")
@@ -111,9 +111,9 @@ function App() {
                         </div>
                     </div>
                 ) : null}
-                {/* {tab === "Youtube Clips" ? (
+                {tab === "Youtube Clips" ? (
                     <YoutubeClips darkMode={darkMode} />
-                ) : null} */}
+                ) : null}
             </div>
         </div>
     );
