@@ -3,15 +3,9 @@ import axios from "axios";
 
 const fetchUserData = async (streamerName) => {
     try {
-        const baseUrl = "https://api.twitch.tv/helix/users";
-        const result = await axios.get(`${baseUrl}?login=${streamerName}`, {
-            headers: {
-                "Client-ID": process.env.REACT_APP_CLIENT_ID,
-                Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`,
-            },
-        });
-        // console.log(result.data.data[0]);
-        return result.data.data[0];
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const result = await axios.post(`${baseUrl}/users`, { streamerName });
+        return result.data.data;
     } catch (error) {
         console.log("Error while fetching:", error);
         return null;
@@ -32,11 +26,6 @@ const OfflineCard = ({ streamerData, darkMode }) => {
             });
         }
     }, [streamerData]);
-    // console.log(result);
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
 
     return (
         <div
@@ -53,7 +42,7 @@ const OfflineCard = ({ streamerData, darkMode }) => {
                     <div>
                         <img
                             src={result?.profile_image_url || ""}
-                            alt={result?.display_name || "Streamer"}
+                            alt={result?.user_name || "Streamer"}
                             className="rounded-full w-[150px] h-[150px] object-cover"
                             loading="lazy"
                         />
@@ -64,7 +53,7 @@ const OfflineCard = ({ streamerData, darkMode }) => {
                                 darkMode ? "text-white" : "text-darkBlue"
                             } font-bold`}
                         >
-                            {result?.display_name || "Unknown Streamer"}
+                            {result?.user_name || "Unknown Streamer"}
                         </h3>
                         <p
                             className={`font-semibold ${
