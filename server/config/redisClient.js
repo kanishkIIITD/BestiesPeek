@@ -1,10 +1,13 @@
 // config/redisClient.js
 const redis = require("redis");
 // const logger = require("./logger"); // Assuming you have a logger setup
+require("dotenv").config();
 
 const redisClient = redis.createClient({
-    host: "127.0.0.1", // Default Memurai host
-    port: 6379, // Default Memurai port
+    // host: "127.0.0.1", // Default Memurai host
+    // port: 6379, // Default Memurai port
+    url: process.env.REDIS_URL,
+    // url: "redis://127.0.0.1:6379",
 });
 
 redisClient.on("error", (err) => {
