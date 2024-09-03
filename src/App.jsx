@@ -1,14 +1,14 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { useEffect, useState, Suspense, lazy } from "react";
+import { useEffect, useState } from "react";
 // import bestieImage from "./assets/besties.jpg";
 // import albuterolBoysImage from "./assets/Albuterol Boys.png";
 import { Cards } from "./components/Cards";
 // import YoutubeClips from "./components/YoutubeClips";
 
-const LazyImageAndDescription = lazy(() =>
-    import("./components/LazyImageAndDescription")
-);
+// const LazyImageAndDescription = lazy(() =>
+//     import("./components/LazyImageAndDescription")
+// );
 
 function App() {
     const besties = {
@@ -123,12 +123,12 @@ function App() {
                             </h1>
                         </div> */}
 
-                        <Suspense fallback={<div className="spinner"></div>}>
+                        {/* <Suspense fallback={<div className="spinner"></div>}>
                             <LazyImageAndDescription
                                 tab={tab}
                                 darkMode={darkMode}
                             />
-                        </Suspense>
+                        </Suspense> */}
 
                         <div
                             className={`border-2 border-pink-500 mb-4 w-full`}
