@@ -17,7 +17,7 @@ const YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/search";
 const CHANNEL_TIME_ZONE = "Asia/Kolkata";
 
 // Define active and inactive TTLs
-const ACTIVE_TTL = 600; // 10 mins
+const ACTIVE_TTL = 1800; // 30 mins
 const INACTIVE_TTL = 7200; // 2 hours
 
 // Determine if the current time is withing the active period
