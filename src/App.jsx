@@ -1,51 +1,15 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { lazy, Suspense, useEffect, useState } from "react";
-import { Cards } from "./components/Cards";
+import { useEffect, useState } from "react";
 import YoutubeClips from "./components/YoutubeClips";
-
-const LazyImageAndDescription = lazy(() =>
-    import("./components/LazyImageAndDescription")
-);
+import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Besties from "./components/Besties";
+import AlbuterolBoys from "./components/AlbuterolBoys";
 
 function App() {
-    const besties = {
-        leaders: ["4head", "ming", "nidas"],
-        ogs: ["fanfan", "travpiper", "caramel"],
-        members: [
-            "julian",
-            "TheDoubles",
-            "zuck",
-            "jack",
-            "razzy",
-            "SlightlyPoetic",
-            "kyle",
-            "harmless_",
-            "mdrakoo",
-            "SimplessR6",
-            "manax321",
-        ],
-        pet: ["ThatGuyGP"],
-        hangarounds: ["dripp", "ChopoNZ", "Stuply", "RissahBear", "Kameu"],
-    };
-
-    const Albuterol_Boys = {
-        leaders: ["omie"],
-        ogs: ["ripoozi", "ZayTyree"],
-        members: [
-            // "713Stew",
-            "TylerTR",
-            "mfWarlock",
-            "hazan_n",
-            "xDavidoh",
-            "Either",
-            "Baddy",
-            "tjnv_",
-            "NapoleonsLive",
-        ],
-    };
-
     const darkModeStorageKey = "darkMode";
+    const tabStorageKey = "selectedTab";
 
     const saveDarkModeToLocalStorage = (darkMode) => {
         localStorage.setItem(darkModeStorageKey, darkMode.toString());
@@ -56,7 +20,16 @@ function App() {
         return storedDarkMode === "true";
     };
 
-    const [tab, setTab] = useState("Besties"); // Besties, Albuterol Boys, Youtube Clips
+    const saveTabToLocalStorage = (tab) => {
+        localStorage.setItem(tabStorageKey, tab);
+    };
+
+    const getTabFromLocalStorage = () => {
+        const storedTab = localStorage.getItem(tabStorageKey);
+        return storedTab;
+    };
+
+    const [tab, setTab] = useState(getTabFromLocalStorage()); // Home, Besties, Albuterol Boys, Youtube Clips
     const [darkMode, setDarkMode] = useState(getDarkModeFromLocalStorage());
 
     const toggleDarkMode = () => {
@@ -68,7 +41,14 @@ function App() {
     useEffect(() => {
         const storedDarkMode = getDarkModeFromLocalStorage();
         setDarkMode(storedDarkMode);
+
+        const storedTab = getTabFromLocalStorage();
+        setTab(storedTab);
     }, []);
+
+    useEffect(() => {
+        saveTabToLocalStorage(tab);
+    }, [tab]);
 
     return (
         <div className={`w-full bg-pink-500 flex justify-center items-center `}>
@@ -86,34 +66,26 @@ function App() {
 
                 <div className={`border-2 border-pink-500 mb-4 w-full`}></div>
 
-                {tab === "Besties" || tab === "Albuterol Boys" ? (
-                    <div className="flex flex-col items-center w-full">
-                        <Suspense fallback={<div className="spinner"></div>}>
-                            <LazyImageAndDescription
-                                tab={tab}
-                                darkMode={darkMode}
-                            />
-                        </Suspense>
-
-                        <div
-                            className={`border-2 border-pink-500 mb-4 w-full`}
-                        ></div>
-
-                        {/* className="bg-gradient-to-r from-[#D8115B] to-[#D2B48C]" */}
-                        <div className={`relative w-full `}>
-                            <Cards
-                                streamers={
-                                    tab === "Besties" ? besties : Albuterol_Boys
-                                }
-                                tab={tab}
-                                darkMode={darkMode}
-                            />
-                        </div>
-                    </div>
-                ) : null}
-                {tab === "Youtube Clips" ? (
-                    <YoutubeClips darkMode={darkMode} />
-                ) : null}
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home setTab={setTab} darkMode={darkMode} />}
+                    />
+                    <Route
+                        path="/besties"
+                        element={<Besties tab={tab} darkMode={darkMode} />}
+                    />
+                    <Route
+                        path="/albuterol-boys"
+                        element={
+                            <AlbuterolBoys tab={tab} darkMode={darkMode} />
+                        }
+                    />
+                    <Route
+                        path="/youtube-clips"
+                        element={<YoutubeClips darkMode={darkMode} />}
+                    />
+                </Routes>
             </div>
         </div>
     );

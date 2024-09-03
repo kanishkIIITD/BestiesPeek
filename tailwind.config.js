@@ -39,6 +39,15 @@ module.exports = {
                 lightblue2: "#87CEEB",
             },
         },
+        keyframes: {
+            scaleUp: {
+                "0%": { transform: "scale(0)" },
+                "100%": { transform: "scale(1)" },
+            },
+        },
+        animation: {
+            scaleUp: "scaleUp 1s ease-in-out forwards",
+        },
     },
     plugins: [],
 };
