@@ -4,6 +4,7 @@ import albuterolBoysLogo from "../assets/ABlogo.jpg";
 import youtubeLogo from "../assets/youtube.jpg";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Navbar = ({ tab, setTab, darkMode, toggleDarkMode }) => {
     const bestiesHandler = () => {
@@ -24,30 +25,40 @@ export const Navbar = ({ tab, setTab, darkMode, toggleDarkMode }) => {
 
     return (
         <div
-            className={`w-10/12 h-[12%] mx-auto flex sm:justify-between justify-center items-center my-2`}
+            className={`w-10/12  mx-auto flex sm:justify-between justify-center items-center my-2`}
         >
-            <div className="hidden sm:block">
-                <img
-                    src={
-                        tab === "Besties"
-                            ? bestieLogo
-                            : tab === "Albuterol Boys"
-                            ? albuterolBoysLogo
-                            : tab === "Youtube Clips"
-                            ? youtubeLogo
-                            : bestieLogo
-                    }
-                    alt="BestiesLogo"
-                    // height={100}
-                    // width={100}
-                    className="rounded-full h-16"
-                    loading="lazy"
-                />
+            <div className="hidden sm:block ">
+                <motion.div
+                    drag
+                    dragConstraints={{
+                        top: -50,
+                        left: -50,
+                        right: 50,
+                        bottom: 50,
+                    }}
+                >
+                    <img
+                        src={
+                            tab === "Besties"
+                                ? bestieLogo
+                                : tab === "Albuterol Boys"
+                                ? albuterolBoysLogo
+                                : tab === "Youtube Clips"
+                                ? youtubeLogo
+                                : bestieLogo
+                        }
+                        alt="BestiesLogo"
+                        // height={100}
+                        // width={100}
+                        className="rounded-full h-16"
+                        loading="lazy"
+                    />
+                </motion.div>
             </div>
 
-            <div className="flex gap-10 items-center ">
+            <div className="flex gap-2 md:gap-5 lg:gap-10 items-center ">
                 <div
-                    className={`flex gap-4 rounded-xl bg-pink-500 text-white p-1 sm:p-2 md:p-3 h-fit items-center `}
+                    className={`flex gap-0 sm:gap-2 md:gap-4 rounded-xl bg-pink-500 text-white p-1 sm:p-2 md:p-3 h-fit items-center text-base md:text-xl`}
                 >
                     <Link to="/">
                         <button

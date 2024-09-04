@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const YoutubeClips = ({ darkMode }) => {
     const [videos, setVideos] = useState([]);
@@ -39,9 +40,9 @@ const YoutubeClips = ({ darkMode }) => {
     // console.log("prevPageToken", prevPageToken);
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center justify-center">
+        <div className="w-11/12 min-h-screen flex flex-col items-center justify-center">
             {isLoading ? (
-                <div className="spinner "></div>
+                <div className="spinner"></div>
             ) : (
                 <>
                     <div
@@ -76,41 +77,46 @@ const YoutubeClips = ({ darkMode }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                         {videos &&
                             videos?.map((video) => (
-                                <div
-                                    key={video.videoId}
-                                    className="flex flex-col items-center border-2 border-pink-500 rounded-xl p-5 lg:mx-5 xl:mx-10"
+                                <motion.div
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 1 }}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    key={video.videoId + Date.now()}
                                 >
-                                    <h3
-                                        dangerouslySetInnerHTML={{
-                                            __html: video.videoTitle,
-                                        }}
-                                        className={`w-2/3 md:text-base xl:text-xl font-bold text-center ${
-                                            darkMode
-                                                ? "text-white"
-                                                : "text-black"
-                                        } mb-4`}
-                                    ></h3>
-                                    <img
-                                        src={video.thumbnailUrl}
-                                        alt={video.videoTitle}
-                                        height={480}
-                                        width={360}
-                                        className="rounded-xl mb-3"
-                                        loading="lazy"
-                                    />
-                                    <a
-                                        href={video.videoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`text-center border rounded-xl p-2  mt-2 hover:scale-110 font-semibold transition-all duration-200 ${
-                                            darkMode
-                                                ? "text-white border-white"
-                                                : "text-black border-black"
-                                        }`}
-                                    >
-                                        Watch Video
-                                    </a>
-                                </div>
+                                    <div className="flex flex-col items-center border-2 border-pink-500 rounded-xl p-5 lg:mx-5 xl:mx-10 min-h-[470px] justify-evenly">
+                                        <h3
+                                            dangerouslySetInnerHTML={{
+                                                __html: video.videoTitle,
+                                            }}
+                                            className={`w-2/3 md:text-base xl:text-xl font-bold text-center ${
+                                                darkMode
+                                                    ? "text-white"
+                                                    : "text-black"
+                                            } mb-4 poppins-extralight-`}
+                                        ></h3>
+                                        <img
+                                            src={video.thumbnailUrl}
+                                            alt={video.videoTitle}
+                                            height={480}
+                                            width={360}
+                                            className="rounded-xl mb-3"
+                                            loading="lazy"
+                                        />
+                                        <a
+                                            href={video.videoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`text-center border rounded-xl p-2  mt-2 hover:scale-110 font-semibold transition-all duration-200 ${
+                                                darkMode
+                                                    ? "text-white border-white"
+                                                    : "text-black border-black"
+                                            } poppins-extralight`}
+                                        >
+                                            Watch Video
+                                        </a>
+                                    </div>
+                                </motion.div>
                             ))}
                     </div>
 

@@ -284,7 +284,7 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                 Object.keys(streamers).map((role) => (
                     <div
                         key={role}
-                        className="role-section flex flex-col items-center"
+                        className="role-section flex flex-col items-center min-w-full"
                     >
                         {liveStreamers[role]?.length > 0 && (
                             <>

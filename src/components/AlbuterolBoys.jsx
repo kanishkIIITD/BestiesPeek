@@ -20,7 +20,7 @@ const AlbuterolBoys = ({ tab, darkMode }) => {
         ],
     };
     return (
-        <div>
+        <div className="w-full">
             <div className="flex flex-col items-center w-full">
                 <Suspense fallback={<div className="spinner"></div>}>
                     <LazyImageAndDescription tab={tab} darkMode={darkMode} />

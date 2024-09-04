@@ -21,12 +21,12 @@ function App() {
     };
 
     const saveTabToLocalStorage = (tab) => {
-        localStorage.setItem(tabStorageKey, tab);
+        sessionStorage.setItem(tabStorageKey, tab);
     };
 
     const getTabFromLocalStorage = () => {
-        const storedTab = localStorage.getItem(tabStorageKey);
-        return storedTab;
+        const storedTab = sessionStorage.getItem(tabStorageKey);
+        return storedTab || "Home";
     };
 
     const [tab, setTab] = useState(getTabFromLocalStorage()); // Home, Besties, Albuterol Boys, Youtube Clips
