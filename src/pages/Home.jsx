@@ -9,9 +9,9 @@ const Home = ({ setTab, darkMode }) => {
         <div
             className={`flex flex-col items-center w-11/12  justify-evenly text-xl md:text-2xl lg:text-3xl ${
                 darkMode ? "text-white" : "text-black"
-            } animate-scaleUp h-screen `}
+            } animate-scaleUp md:h-screen `}
         >
-            <div className=" p-2 md:p-5 lg:p-10  flex flex-col items-center gap-2 md:gap-5 lg:gap-10 relative">
+            <div className=" p-2 md:p-5 lg:p-10 h-fit flex flex-col items-center gap-2 md:gap-5 lg:gap-10 relative">
                 <div className="relative flex items-center justify-center flex-col md:flex-row">
                     <motion.div
                         drag
@@ -91,7 +91,7 @@ const Home = ({ setTab, darkMode }) => {
             </div>
 
             {/* Credits */}
-            <div className="flex gap-10 ">
+            <div className="flex gap-10 mb-4">
                 {/* Credits for the art */}
                 <div className="flex flex-col items-center gap-3">
                     <h2 className="poppins-medium text-2xl">Credits</h2>
