@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import kittensImg from "../assets/kittens.jpg";
 import { FaArrowUpLong, FaArrowDownLong } from "react-icons/fa6";
 import zoroGif from "../assets/zoro.gif";
+import { div } from "framer-motion/client";
 
 const kittens = [
     "caramel",
@@ -76,7 +77,12 @@ export const Cards = ({ streamers, tab, darkMode }) => {
                     {showSortingButtons ? (
                         <AiOutlineClose size={30} />
                     ) : (
-                        <MdMenuOpen size={30} />
+                        <div className="flex items-center ">
+                            <span className="mr-2 text-lg poppins-medium">
+                                Sort
+                            </span>
+                            <MdMenuOpen size={30} />
+                        </div>
                     )}
                 </button>
                 {showSortingButtons ? (
