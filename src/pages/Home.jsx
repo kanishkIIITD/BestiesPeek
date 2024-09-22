@@ -85,10 +85,10 @@ const Home = ({ setTab, darkMode }) => {
                                 rel="noreferrer"
                                 className="underline text-pink-400 poppins-extralight-italic"
                             >
-                                Veyina
+                                Vyeina
                             </a> */}
               <p className="underline text-pink-400 poppins-extralight-italic">
-                Veyina
+                Vyeina
               </p>
             </p>
           </div>
