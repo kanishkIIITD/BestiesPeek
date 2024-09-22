@@ -5,80 +5,82 @@ import "../App.css";
 const LazyImageAndDescription = lazy(() => import("./LazyImageAndDescription"));
 
 const Besties = ({ tab, darkMode }) => {
-    const besties = {
-        leaders: ["4head", "ming", "nidas"],
-        ogs: ["fanfan", "travpiper", "caramel"],
-        members: [
-            "julian",
-            "TheDoubles",
-            "zuck",
-            "jack",
-            "razzy",
-            "SlightlyPoetic",
-            "kyle",
-            "harmless_",
-            "mdrakoo",
-            "SimplessR6",
-            "manax321",
-        ],
-        pet: ["ThatGuyGP"],
-        hangarounds: ["dripp", "ChopoNZ", "Stuply", "RissahBear", "Kameu"],
+  const besties = {
+    leaders: ["4head", "ming", "nidas"],
+    ogs: ["SimplessR6"],
+    members: [
+      "fanfan",
+      "travpiper",
+      "caramel",
+      "julian",
+      "TheDoubles",
+      "zuck",
+      "jack",
+      "razzy",
+      "SlightlyPoetic",
+      "kyle",
+      "harmless_",
+      "mdrakoo",
+      "manax321",
+    ],
+    pet: ["ThatGuyGP"],
+    hangarounds: ["dripp", "ChopoNZ", "Stuply", "RissahBear", "Kameu"],
+  };
+
+  const fadeInRef = useRef(null);
+  const slideInRef = useRef(null);
+
+  useEffect(() => {
+    const fadeInElement = fadeInRef.current;
+    const slideInElement = slideInRef.current;
+
+    const observerOptions = {
+      threshold: 0.5,
     };
 
-    const fadeInRef = useRef(null);
-    const slideInRef = useRef(null);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, observerOptions);
 
-    useEffect(() => {
-        const fadeInElement = fadeInRef.current;
-        const slideInElement = slideInRef.current;
+    if (fadeInElement) observer.observe(fadeInElement);
+    if (slideInElement) observer.observe(slideInElement);
 
-        const observerOptions = {
-            threshold: 0.5,
-        };
+    return () => {
+      if (fadeInElement) observer.unobserve(fadeInElement);
+      if (slideInElement) observer.unobserve(slideInElement);
+    };
+  }, []);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        }, observerOptions);
+  return (
+    <div className="w-full">
+      <div className="flex flex-col items-center w-full">
+        <Suspense
+          // ref={fadeInRef}
+          fallback={<div className="spinner"></div>}
+          // className="fade-in-on-scroll"
+        >
+          <LazyImageAndDescription
+            tab={tab}
+            darkMode={darkMode}
+            fadeInRef={fadeInRef}
+          />
+        </Suspense>
 
-        if (fadeInElement) observer.observe(fadeInElement);
-        if (slideInElement) observer.observe(slideInElement);
+        <div className={`border-2 border-pink-500 mb-4 w-full`}></div>
 
-        return () => {
-            if (fadeInElement) observer.unobserve(fadeInElement);
-            if (slideInElement) observer.unobserve(slideInElement);
-        };
-    }, []);
-
-    return (
-        <div className="w-full">
-            <div className="flex flex-col items-center w-full">
-                <Suspense
-                    // ref={fadeInRef}
-                    fallback={<div className="spinner"></div>}
-                    // className="fade-in-on-scroll"
-                >
-                    <LazyImageAndDescription
-                        tab={tab}
-                        darkMode={darkMode}
-                        fadeInRef={fadeInRef}
-                    />
-                </Suspense>
-
-                <div className={`border-2 border-pink-500 mb-4 w-full`}></div>
-
-                <div
-                    // ref={fadeInRef}
-                    className={`relative w-full`}
-                >
-                    <Cards streamers={besties} tab={tab} darkMode={darkMode} />
-                </div>
-            </div>
+        <div
+          // ref={fadeInRef}
+          className={`relative w-full`}
+        >
+          <Cards streamers={besties} tab={tab} darkMode={darkMode} />
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Besties;
