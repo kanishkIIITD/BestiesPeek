@@ -110,7 +110,7 @@ function App() {
         <div
           className={`${
             darkMode ? "bg-darkBlackMode text-white" : "bg-white"
-          } w-full flex justify-center items-center h-screen perspective-container relative`}
+          } w-full flex justify-center items-center h-screen perspective-container relative overflow-hidden`}
         >
           <div
             class={`${
