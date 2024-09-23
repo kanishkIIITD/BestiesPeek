@@ -21,7 +21,7 @@ const Home = ({ setTab, darkMode }) => {
         className="w-full flex justify-center relative"
       >
         <div
-          className={`flex flex-col items-center w-11/12 h-screen sm:h-fit justify-evenly text-xl md:text-2xl lg:text-3xl ${
+          className={`flex flex-col items-center w-11/12  justify-evenly text-xl md:text-2xl lg:text-3xl ${
             darkMode ? "text-white" : "text-black"
           } md:h-screen relative`}
         >
@@ -136,7 +136,7 @@ const Home = ({ setTab, darkMode }) => {
           </div>
 
           {/* One Piece */}
-          <div className="relative hidden sm:flex items-center justify-center flex-col md:flex-row">
+          <div className="relative flex items-center justify-center flex-col md:flex-row z-0">
             <motion.div
               drag
               dragConstraints={{
@@ -149,7 +149,7 @@ const Home = ({ setTab, darkMode }) => {
               <img
                 src={zoroHome}
                 alt="zoroHome"
-                className="rounded-full h-200 w-200 md:h-200 md:w-200 lg:h-300 lg:w-300"
+                className="rounded-full h-200 w-200 md:h-200 md:w-200 lg:h-300 lg:w-300 "
               />
             </motion.div>
             <img
