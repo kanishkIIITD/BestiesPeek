@@ -298,33 +298,88 @@
   opacity: 0.7; /* Adjust opacity as needed */
   animation: pulse 2s ease-in-out infinite; /* Pulsing animation */
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+  width: 500px; /* Size of second circle */
+  height: 500px;
 }
 
 .circle1 {
-  width: 500px; /* Size of first circle */
-  height: 500px;
+  top: 40%; /* Position of first circle */
+  left: 10%;
+  opacity: 0.04; /* Adjust opacity as needed */
+}
+
+.circle2 {
+  top: 10%; /* Position of second circle */
+  left: 60%;
+  animation-duration: 2.5s; /* Different animation duration for variety */
+  opacity: 0.04; /* Adjust opacity as needed */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Tablet */
+  .circle {
+    width: 350px;
+    height: 350px;
+  }
+  .circle1 {
+    top: 30%; /* Adjust position for tablet */
+    left: 5%;
+  }
+  .circle2 {
+    top: 15%; /* Adjust position for tablet */
+    left: 55%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile */
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+  .circle1 {
+    top: 20%; /* Adjust position for mobile */
+    left: 0%;
+  }
+  .circle2 {
+    top: 50%; /* Adjust position for mobile */
+    left: 50%;
+  }
+}
+
+.circle1-light {
+  opacity: 0.1;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(54, 67, 84, 1) 100%
+  );
+}
+
+.circle2-light {
+  opacity: 0.1;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(54, 67, 84, 1) 100%
+  );
+}
+
+.circle1-dark {
   background: radial-gradient(
     circle,
     rgba(238, 174, 202, 1) 0%,
     rgba(54, 67, 84, 1) 100%
   ); /* Gradient for first circle */
-  top: 40%; /* Position of first circle */
-  left: 10%;
-  opacity: 0.02; /* Adjust opacity as needed */
 }
 
-.circle2 {
-  width: 500px; /* Size of second circle */
-  height: 500px;
+.circle2-dark {
   background: radial-gradient(
     circle,
     rgba(238, 174, 202, 1) 0%,
     rgba(26, 47, 75, 1) 100%
   ); /* Gradient for second circle */
-  top: 10%; /* Position of second circle */
-  left: 60%;
-  animation-duration: 2.5s; /* Different animation duration for variety */
-  opacity: 0.02; /* Adjust opacity as needed */
 }
 
 @keyframes pulse {

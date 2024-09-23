@@ -112,8 +112,20 @@ function App() {
             darkMode ? "bg-darkBlackMode text-white" : "bg-white"
           } w-full flex justify-center items-center h-screen perspective-container relative`}
         >
-          <div class="circle circle1"></div>
-          <div class="circle circle2"></div>
+          <div
+            class={`${
+              darkMode
+                ? "circle circle1 circle1-dark"
+                : "circle circle1 circle1-light"
+            }`}
+          ></div>
+          <div
+            class={`${
+              darkMode
+                ? "circle circle2 circle2-dark"
+                : "circle circle2 circle2-light"
+            }`}
+          ></div>
 
           <motion.div
             initial={{ scale: 0.1, y: 100, opacity: 0 }} // Start small, move down, and invisible
