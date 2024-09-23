@@ -21,7 +21,7 @@ const Home = ({ setTab, darkMode }) => {
         className="w-full flex justify-center relative"
       >
         <div
-          className={`flex flex-col items-center w-11/12  justify-evenly text-xl md:text-2xl lg:text-3xl ${
+          className={`flex flex-col items-center w-11/12 h-screen sm:h-fit justify-evenly text-xl md:text-2xl lg:text-3xl ${
             darkMode ? "text-white" : "text-black"
           } md:h-screen relative`}
         >
@@ -136,7 +136,7 @@ const Home = ({ setTab, darkMode }) => {
           </div>
 
           {/* One Piece */}
-          <div className="relative flex items-center justify-center flex-col md:flex-row">
+          <div className="relative hidden sm:flex items-center justify-center flex-col md:flex-row">
             <motion.div
               drag
               dragConstraints={{
