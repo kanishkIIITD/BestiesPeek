@@ -127,7 +127,6 @@ function App() {
               times: [0, 0.6, 1], // Timing for each part of the animation
               ease: "easeOut",
             }}
-            className="z-animation"
           >
             <div className="flex items-center gap-2">
               <img src={bestieLogo} alt="bestieLogo" width={75} />

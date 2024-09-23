@@ -251,11 +251,6 @@
   perspective: 1000px;
 }
 
-.z-animation {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
 .text-gradient {
   font-size: 1em; /* or whatever size you need */
   color: transparent;
