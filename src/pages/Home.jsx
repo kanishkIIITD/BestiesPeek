@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import zoroHome from "../assets/original/zoroHomePage.jpeg";
 import fiddy from "../assets/fiddy.jpg";
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const Home = ({ setTab, darkMode }) => {
   return (
     <div
       className={`flex flex-col items-center w-11/12  justify-evenly text-xl md:text-2xl lg:text-3xl ${
         darkMode ? "text-white" : "text-black"
-      } animate-scaleUp md:h-screen `}
+      } md:h-screen `}
     >
       <div className=" p-2 md:p-5 lg:p-10 h-fit flex flex-col items-center gap-2 md:gap-5 lg:gap-10 relative">
         <nav>

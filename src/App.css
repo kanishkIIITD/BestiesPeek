@@ -1,248 +1,343 @@
 .spinner {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 9px solid;
-    border-color: #474bff #0000;
-    animation: spinner-0tkp9a 1s infinite;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid;
+  border-color: #474bff #0000;
+  animation: spinner-0tkp9a 1s infinite;
 }
 
 @keyframes spinner-0tkp9a {
-    to {
-        transform: rotate(0.5turn);
-    }
+  to {
+    transform: rotate(0.5turn);
+  }
 }
 
 .container {
-    background: radial-gradient(circle, #d8115b 1px, transparent 1px), #ffffff;
-    background-size: 20px 20px;
+  background: radial-gradient(circle, #d8115b 1px, transparent 1px), #ffffff;
+  background-size: 20px 20px;
 }
 .container2 {
-    background-image: linear-gradient(to right, #ffd5d5 1px, transparent 1px),
-        linear-gradient(to bottom, #ffd5d5 1px, transparent 1px);
-    background-size: 20px 20px;
+  background-image: linear-gradient(to right, #ffd5d5 1px, transparent 1px),
+    linear-gradient(to bottom, #ffd5d5 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .sort-buttons button {
-    background-color: #d8115b;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  background-color: #d8115b;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .sort-buttons button:hover {
-    background-color: #ff6f91;
+  background-color: #ff6f91;
 }
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-    scrollbar-width: auto;
-    scrollbar-color: #afb2bf;
+  scrollbar-width: auto;
+  scrollbar-color: #afb2bf;
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 3px;
+  width: 3px;
 }
 
 *::-webkit-scrollbar-track {
-    background: #000814;
+  background: #000814;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #afb2bf;
-    border-radius: 10px;
-    visibility: hidden;
+  background-color: #afb2bf;
+  border-radius: 10px;
+  visibility: hidden;
 }
 
 *:active::-webkit-scrollbar-thumb,
 *:focus::-webkit-scrollbar-thumb,
 *:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
+  visibility: visible;
 }
 
 :root {
-    --width: 1.25rem;
-    --thickness: 0.125rem;
-    --gap: 0.25rem;
-    --color: #000;
-    --duration: 300ms;
+  --width: 1.25rem;
+  --thickness: 0.125rem;
+  --gap: 0.25rem;
+  --color: #000;
+  --duration: 300ms;
 }
 
 .sorting-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    transition: background-color 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.5s ease;
 }
 
 .sorting-buttons-dark {
-    border: 1px solid #3a3a3a;
+  border: 1px solid #3a3a3a;
 }
 
 @media (min-width: 768px) {
-    .sorting-buttons {
-        padding: 10px;
-    }
+  .sorting-buttons {
+    padding: 10px;
+  }
 }
 
 .active {
-    background-color: #d8115b;
-    color: #fff;
-    transition: background-color 0.5s ease;
+  background-color: #d8115b;
+  color: #fff;
+  transition: background-color 0.5s ease;
 }
 
 .sorting-buttons:hover {
-    background-color: #d8115b;
-    color: #fff;
-    transition: background-color 0.5s ease;
+  background-color: #d8115b;
+  color: #fff;
+  transition: background-color 0.5s ease;
 }
 
 .poppins-thin {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
 
 .poppins-extralight {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .poppins-semibold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .poppins-extrabold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
 .poppins-black {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
 }
 
 .poppins-thin-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
 }
 
 .poppins-extralight-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
 }
 
 .poppins-light-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .poppins-regular-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .poppins-medium-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
 }
 
 .poppins-semibold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .poppins-bold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .poppins-extrabold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
 }
 
 .poppins-black-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .fade-in-on-scroll,
 .slide-in-on-scroll {
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out, transform 1s ease;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1s ease;
 }
 
 .fade-in-on-scroll.show,
 .slide-in-on-scroll.show {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .slide-in-on-scroll {
-    transform: translateX(-100%); /* Slide in from the left */
+  transform: translateX(-100%); /* Slide in from the left */
 }
 
 .selectDisable {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .selectEnable {
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -o-user-select: text;
-    user-select: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+.perspective-container {
+  perspective: 1000px;
+}
+
+.z-animation {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.text-gradient {
+  font-size: 1em; /* or whatever size you need */
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 161, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text; /* for Safari */
+}
+
+.intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1),
+    rgba(227, 45, 125, 1),
+    rgba(0, 212, 255, 1)
+  );
+  animation: gradientAnimation 10s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7; /* Adjust opacity as needed */
+  animation: pulse 2s ease-in-out infinite; /* Pulsing animation */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+}
+
+.circle1 {
+  width: 500px; /* Size of first circle */
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(54, 67, 84, 1) 100%
+  ); /* Gradient for first circle */
+  top: 40%; /* Position of first circle */
+  left: 10%;
+  opacity: 0.02; /* Adjust opacity as needed */
+}
+
+.circle2 {
+  width: 500px; /* Size of second circle */
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(26, 47, 75, 1) 100%
+  ); /* Gradient for second circle */
+  top: 10%; /* Position of second circle */
+  left: 60%;
+  animation-duration: 2.5s; /* Different animation duration for variety */
+  opacity: 0.02; /* Adjust opacity as needed */
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.2); /* Scale up */
+  }
 }
