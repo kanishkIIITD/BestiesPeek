@@ -59,21 +59,22 @@ const streamers = [
   "stuply",
   "rissahbear",
   "kameu",
+  "mistamoshi",
+  "cortair_",
+  "ipink_",
+  "GoufBam",
 
   // Albuterol_Boys
   "omie",
   "ripoozi",
   "zaytyree",
-  // "713stew",
   "tylertr",
   "mfwarlock",
   "hazan_n",
   "xdavidoh",
-  "either",
   "baddy",
   "tjnv_",
   "napoleonslive",
-  "SgtApollo",
   "ojhankson",
 ];
 

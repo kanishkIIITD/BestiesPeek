@@ -8,17 +8,15 @@ const AlbuterolBoys = ({ tab, darkMode }) => {
     leaders: ["omie"],
     ogs: ["ripoozi", "ZayTyree"],
     members: [
-      // "713Stew",
       "TylerTR",
       "mfWarlock",
       "hazan_n",
       "xDavidoh",
-      "Either",
       "Baddy",
       "tjnv_",
       "NapoleonsLive",
     ],
-    associates: ["SgtApollo", "ojhankson"],
+    associates: ["ojhankson"],
   };
   return (
     <div className="w-full">

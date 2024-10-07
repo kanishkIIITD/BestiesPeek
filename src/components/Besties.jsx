@@ -24,7 +24,17 @@ const Besties = ({ tab, darkMode }) => {
       "manax321",
     ],
     pet: ["ThatGuyGP"],
-    hangarounds: ["dripp", "ChopoNZ", "Stuply", "RissahBear", "Kameu"],
+    hangarounds: [
+      "dripp",
+      "ChopoNZ",
+      "Stuply",
+      "RissahBear",
+      "Kameu",
+      "mistamoshi",
+      "cortair_",
+      "ipink_",
+      "GoufBam",
+    ],
   };
 
   const fadeInRef = useRef(null);
