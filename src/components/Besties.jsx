@@ -7,7 +7,7 @@ const LazyImageAndDescription = lazy(() => import("./LazyImageAndDescription"));
 const Besties = ({ tab, darkMode }) => {
   const besties = {
     leaders: ["4head", "ming", "nidas"],
-    ogs: ["SimplessR6"],
+    ogs: ["SimplessR6", "dripp"],
     members: [
       "fanfan",
       "travpiper",
@@ -22,13 +22,12 @@ const Besties = ({ tab, darkMode }) => {
       "harmless_",
       "mdrakoo",
       "manax321",
+      "ChopoNZ",
+      "RissahBear",
     ],
     pet: ["ThatGuyGP"],
     hangarounds: [
-      "dripp",
-      "ChopoNZ",
       "Stuply",
-      "RissahBear",
       "Kameu",
       "mistamoshi",
       "cortair_",
