@@ -48,7 +48,7 @@ export const besties = [
   "razzy",
   "SlightlyPoetic",
   "kyle",
-  "harmless_",
+  "harmless",
   "mdrakoo",
   "SimplessR6",
   "manax321",

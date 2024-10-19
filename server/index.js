@@ -49,7 +49,7 @@ const streamers = [
   "razzy",
   "slightlypoetic",
   "kyle",
-  "harmless_",
+  "harmless",
   "mdrakoo",
   "simplessr6",
   "manax321",
