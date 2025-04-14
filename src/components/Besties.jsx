@@ -7,8 +7,9 @@ const LazyImageAndDescription = lazy(() => import("./LazyImageAndDescription"));
 const Besties = ({ tab, darkMode }) => {
   const besties = {
     leaders: ["4head", "ming", "nidas"],
-    ogs: ["SimplessR6", "dripp"],
+    ogs: ["SimplessR6"],
     members: [
+      "dripp",
       "fanfan",
       "travpiper",
       "caramel",
@@ -21,19 +22,19 @@ const Besties = ({ tab, darkMode }) => {
       "kyle",
       "harmless",
       "mdrakoo",
-      "manax321",
+      "manax",
       "ChopoNZ",
       "RissahBear",
+      "ipink_",
+      "sukhi_1",
+      "goufbam",
+      "EnduringAnguish",
+      "daisyks",
+      "SwizzMB",
+      "chelb",
     ],
     pet: ["ThatGuyGP"],
-    hangarounds: [
-      "Stuply",
-      "Kameu",
-      "mistamoshi",
-      "cortair_",
-      "ipink_",
-      "GoufBam",
-    ],
+    hangarounds: ["Stuply", "stormskii"],
   };
 
   const fadeInRef = useRef(null);
