@@ -10,11 +10,11 @@ const AlbuterolBoys = ({ tab, darkMode }) => {
     members: [
       "TylerTR",
       "mfWarlock",
-      "hazan_n",
+      "hazan",
       "xDavidoh",
       "Baddy",
-      "tjnv_",
-      "NapoleonsLive",
+      "tjnv",
+      "napoleon",
     ],
     associates: ["ojhankson"],
   };

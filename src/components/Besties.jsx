@@ -24,7 +24,7 @@ const Besties = ({ tab, darkMode }) => {
       "mdrakoo",
       "manax",
       "ChopoNZ",
-      "RissahBear",
+      "RissaBear",
       "ipink_",
       "sukhi_1",
       "goufbam",

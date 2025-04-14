@@ -55,7 +55,7 @@ const streamers = [
   "mdrakoo",
   "manax",
   "ChopoNZ",
-  "RissahBear",
+  "RissaBear",
   "ipink_",
   "sukhi_1",
   "goufbam",
@@ -70,15 +70,14 @@ const streamers = [
   // Albuterol_Boys
   "omie",
   "ripoozi",
-  "zaytyree",
-  "tylertr",
-  "mfwarlock",
-  "hazan_n",
-  "xdavidoh",
-  "baddy",
-  "tjnv_",
-  "napoleonslive",
-  "ojhankson",
+  "ZayTyree",
+  "TylerTR",
+  "mfWarlock",
+  "hazan",
+  "xDavidoh",
+  "Baddy",
+  "tjnv",
+  "napoleon",
 ];
 
 // Cron job to check live status of streamers
