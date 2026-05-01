@@ -2,6 +2,45 @@
 
 Discover what your favorite GTA RP streamers are up to — all in one place, with the latest YouTube videos and updates at your fingertips.
 
+```mermaid
+graph TD
+    subgraph "Presentation Layer (Vercel)"
+        UI[React.js Frontend]
+        State[React Hooks / Context]
+    end
+
+    subgraph "Application Layer (Node.js/Express)"
+        API[REST API Endpoints]
+        Cron[Automated Cron Job Service]
+        Monitor[Status Checker Logic]
+    end
+
+    subgraph "Data & Cache Layer"
+        DB[(MongoDB Atlas)]
+        Cache[(Redis Cache)]
+    end
+
+    subgraph "External Integrations"
+        Twitch[Twitch API]
+        YouTube[YouTube API]
+    end
+
+    %% User Request Flow
+    UI -- "GET /streamers/status" --> API
+    API -- "Check Cache" --> Cache
+    Cache -- "Cache Hit" --> API
+    API -- "JSON Response" --> UI
+
+    %% Background Monitoring Flow
+    Cron -- "Triggers every X mins" --> Monitor
+    Monitor -- "Fetch Live Data" --> Twitch
+    Monitor -- "Fetch Live Data" --> YouTube
+    Twitch -- "Status Update" --> Monitor
+    YouTube -- "Status Update" --> Monitor
+    Monitor -- "Update Database" --> DB
+    Monitor -- "Invalidate/Update Cache" --> Cache
+```
+
 ## Table of Contents
 
 - [Overview](#overview)
